@@ -3,6 +3,8 @@
 A fun and fast-paced browser-based game where you play as a police officer trying to catch a thief hiding in different cities of India. Think quick, type fast, and chase him down!
 
 ---
+## Live Demo
+https://ankitcatchthetheif.netlify.app/index.html
 
 ## 🚀 Features
 
