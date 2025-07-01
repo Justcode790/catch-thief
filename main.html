@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chor Police Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="main">
+        
+        <div class="top-controls">
+            <button class="exitGame" onclick="exitGame()">Exit</button>
+            <button id="muteBtn" title="Toggle Music">🔊</button>
+            <button id="levelbtn">level: <span>0</span></button>
+        </div>
+          <div class="timer_container">
+        <div class="timer_bar" id="timerBar"></div>
+        </div>
+        <div class="game_areana">
+            <!-- <button id="muteBtn" title="Toggle Music">🔊</button> -->
+            <div class="police">
+                <div class="badge">Police</div>
+                <div class="police_icon">👮‍♂️</div>
+            </div>
+
+            <div class="thief">
+                <div class="badge">Thief</div>
+                <div class="thief_icon">🦹‍♂️</div>
+            </div>
+        </div>
+
+        <div class="result_bar">
+            <input type="text" placeholder="Enter place name..." />
+            <button>Submit</button>
+        </div>
+      
+
+        
+    </div>
+    <!-- Winner Popup -->
+    <div id="winnerPopup" class="popup hidden">
+    <div class="popup-content">
+        <h2 id="popupMessage">🎉 You caught the thief!</h2>
+        <button onclick="restartGame()">Next Level</button>
+        <button onclick="exitGame()">Exit</button>
+    </div>
+    </div>
+    <div id="customAlert" class="custom-alert hidden">
+        <p id="customAlertText">Alert message here</p>
+        <button onclick="hideCustomAlert()">OK</button>
+    </div>
+    <audio id="bgMusic" src="./bg-chase.mp3" type="audio/mpeg" loop> </audio>
+    <audio id="catchSound" src="./success.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+    
+</body>
+</html>

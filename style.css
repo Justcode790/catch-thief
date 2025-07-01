@@ -1,0 +1,343 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive, sans-serif;
+  background: linear-gradient(to top left, #1f1f1f, #2c3e50);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Game Main Layout */
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 1rem;
+  position: relative;
+}
+
+
+/* Input Control Panel */
+.result_bar {
+  background-color: #000;
+  border: 3px dashed #00ff99;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0 0 15px #00ff99;
+}
+
+.result_bar input {
+  padding: 0.8rem 1rem;
+  background-color: #1a1a1a;
+  color: #00ff99;
+  border: 2px solid #00ff99;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: monospace;
+  width: 250px;
+}
+
+.result_bar button {
+  background-color: #00ff99;
+  color: #000;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: monospace;
+  transition: all 0.2s ease-in-out;
+}
+
+.result_bar button:hover {
+  background-color: #00cc88;
+}
+
+
+#levelbtn{
+  position: absolute;
+  top: 6rem;
+  left: 1rem;
+  padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.625rem;
+    /* background: linear-gradient(135deg, #6366f1, #ec4899); */
+    background-color: #00ff99;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+/* Timer Progress Bar */
+.timer_container {
+  width: 80%;
+  height: 15px;
+  background-color: #444;
+  border: 2px solid #00ff99;
+  border-radius: 10px;
+  margin-top: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 8px #00ff99;
+}
+
+.timer_bar {
+  height: 100%;
+  width: 100%;
+  background-color: #00ff99;
+  transition: width 0.1s linear;
+}
+
+
+/* Game Arena - pixel style */
+.game_areana {
+  position: relative;
+  width: 80%;
+  height: 70%;
+  background-color: #111;
+  border: 5px double #ff0066;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #ff0066;
+  margin-top: 30px;
+  overflow: hidden;
+}
+
+#muteBtn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  background-color: #f0f0f0;
+  border: 2px solid #444;
+  border-radius: 50%;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: background-color 0.2s;
+}
+
+#muteBtn:hover {
+  background-color: #ddd;
+}
+
+
+/* Police + Thief Blocks */
+.police,
+.thief {
+  width: 80px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  position: absolute;
+  transition: all 0.5s ease;
+  font-family: monospace;
+  background-color: #222;
+  border: 2px solid;
+}
+
+.police {
+  border-color: #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+.thief {
+  border-color: #ff0033;
+  box-shadow: 0 0 10px #ff0033;
+}
+
+/* Badges */
+.badge {
+  background-color: #000;
+  color: #fff;
+  font-size: 0.7rem;
+  margin-bottom: 5px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  padding: 3px;
+  box-shadow: 0 0 5px #fff;
+}
+
+/* Emoji Icon Styling */
+.police_icon,
+.thief_icon {
+  font-size: 2.5rem;
+  transition: transform 0.3s;
+}
+
+.police:hover .police_icon,
+.thief:hover .thief_icon {
+  transform: scale(1.2);
+}
+
+/* Winner Popup Styling */
+.popup {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-content {
+  background-color: #222;
+  color: #00ff99;
+  padding: 40px;
+  border: 3px solid #00ff99;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 20px #00ff99;
+  animation: popupIn 0.3s ease-out;
+}
+
+.popup-content h2 {
+  margin-bottom: 25px;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.popup-content button,.exitGame {
+  background-color: #00ff99;
+  color: #000;
+  border: none;
+  padding: 10px 25px;
+  margin: 10px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.popup-content button:hover {
+  background-color: #00cc88;
+}
+
+.popup-content button:last-child {
+  background-color: #ff0033;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes popupIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+.custom-alert {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #222;
+  color: #00ff99;
+  border: 2px solid #00ff99;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-family: monospace;
+  font-size: 1rem;
+  box-shadow: 0 0 15px #00ff99;
+  z-index: 9999;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  animation: slideUp 0.3s ease;
+}
+
+.custom-alert button {
+  background-color: #00ff99;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.custom-alert.hidden {
+  display: none;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0%);
+    opacity: 1;
+  }
+}
+
+
+.exitGame{
+  background-color: red;
+  color: #fff;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+}
+
+
+/* Desktop/Laptop Default */
+.top-controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 20px;
+  position: relative;
+}
+
+/* Mobile specific layout */
+@media (max-width: 768px) {
+  .top-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 15px;
+    position: relative;
+  }
+
+  .exitGame,
+  #levelbtn,
+  #muteBtn {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.6rem;
+    position: static;
+  }
+
+  #muteBtn {
+    background-color: #f0f0f0;
+    border: 2px solid #444;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  }
+}

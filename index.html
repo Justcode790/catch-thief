@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chor Police Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        body {
+        background: linear-gradient(to top left, #1f1f1f, #2c3e50);
+        color: #00ff99;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        #main {
+        width: 90%;
+        max-width: 800px;
+        background-color: #111;
+        border: 5px double #00ff99;
+        border-radius: 20px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 0 25px #00ff99;
+        }
+
+        .game-description {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        padding: 1rem 1.2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 0 auto;
+        }
+
+
+
+
+        .labels {
+        font-size: 0.6rem;
+        display: block;
+        margin-top: 1rem;
+        color: #ffffffb0;
+        }
+
+        .labels label{
+            font-size: 1.2rem;
+        }
+
+        .labels input[type="checkbox"] {
+        margin-right: 0.5rem;
+        transform: scale(1.2);
+        }
+
+
+
+        button{
+        margin-top: 20px;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        background-color: #00ff99;
+        color: #000;
+        font-size: 0.9rem;
+        border-radius: 10px;
+        font-family: 'Press Start 2P', cursive;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        }
+
+        .startGameBtn:hover {
+        background-color: #00cc88;
+        box-shadow: 0 0 10px #00ff99;
+        }
+        button a {
+        text-decoration: none;
+        color: inherit;
+        display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1 style="margin-bottom:10px; color:white">Chor Police Game</h1>
+        <div class="description">
+           <p class="game-description">
+            🕵️‍♂️ A thief is hiding in one of the cities.  
+            Your job is to find and catch him by typing the city name shown on his badge.  
+            Be quick — he moves every few seconds!
+            At each level timer will be getting fast....   
+            Guess right to catch him. Guess wrong and he escapes.  
+            Can you track him down in time?
+            
+            </p>
+        </div>
+        <div class="labels">
+            <input type="checkbox" id="desc">
+            <label for="desc">check if you went through the game description</label>
+        </div>
+        <audio id="bgMusic" src="./bg-chase.mp3" loop preload="auto"></audio>
+        <button id="startGameBtn" onclick=startTheGame()>Start the game</button>
+       
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
